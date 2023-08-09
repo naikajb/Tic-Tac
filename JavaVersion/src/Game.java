@@ -39,6 +39,9 @@ public class Game {
     }
 
     private int play(Player current){
+        for(int move: X_moves){
+            //if (move == )
+        }
         return 0;
     }
 }
