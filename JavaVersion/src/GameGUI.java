@@ -119,6 +119,7 @@ public class GameGUI implements Serializable {
         board = initializeButtons(board);
         board.setLayout(null);
         board.setBounds(100,100,200,200);
+        board.setVisible(true);
         game.add(board);
 
     }
