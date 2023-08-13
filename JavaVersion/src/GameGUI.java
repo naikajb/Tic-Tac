@@ -76,6 +76,7 @@ public class GameGUI implements Serializable {
         startUp.setMaximumSize(new Dimension(500, 500));
         startUp.setMinimumSize(new Dimension(500, 500));
         startUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        startUp.setLocationRelativeTo(null);
         startUp.setVisible(true);
     }
 
@@ -93,6 +94,7 @@ public class GameGUI implements Serializable {
         gameWindow.setMinimumSize(new Dimension(500, 500));
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameWindow.setSize(500, 500);
+        gameWindow.setLocationRelativeTo(null);
         gameWindow.setVisible(true);
 
     }
@@ -138,10 +140,12 @@ public class GameGUI implements Serializable {
                 if(game.current == game.ex){
                     //TODO place 'X' graphic on square
                     button.setText("X");
+                    button.setFont(new Font("Arial",3,40));
                     //TODO check if player won
                 }else{
                     //TODO place 'O' graphic on square
                     button.setText("O");
+                    button.setFont(new Font("Arial", Font.BOLD,40));
                     //TODO check if player won
                 }
             }
