@@ -19,10 +19,9 @@ public class Game {
         oh = new Player('O');
         pickStater();
 
-        while(!winnerFound){
-            X_moves.add(play(current));
-        }
-
+//        while(!winnerFound){
+//            X_moves.add(play(current));
+//        }
     }
 
     /**
