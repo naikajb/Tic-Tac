@@ -8,26 +8,28 @@ import java.io.Serializable;
 public class GameGUI implements Serializable {
 
     private static JButton[][] buttons = new JButton[3][3];
-    private static JFrame game = null;
+    private static JFrame gameWindow = null;
     private static JFrame startUp = null;
+    private static Game game = null;
     JPanel GamePanel = null;
+
 
     public GameGUI() {
         startUp = new JFrame("TIC-TAC-TOE");
-        //game = new JFrame("TIC-TAC-TOE");
+        //gameWindow = new JFrame("TIC-TAC-TOE");
         setUpOpeningPanel();
 //        JPanel OpeningPanel = setUpOpeningPanel();
 //        JPanel GamePanel = new JPanel();
 //
-//        game.add(OpeningPanel);
+//        gameWindow.add(OpeningPanel);
 //
 //        //initializeButtons(GamePanel);
 //        GamePanel.setLayout(new GridLayout(3,3));
-//        game.setMaximumSize(new Dimension(500,500));
-//        game.setMinimumSize(new Dimension(500,500));
-//        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        //game.add(GamePanel);
-//        game.setVisible(true);
+//        gameWindow.setMaximumSize(new Dimension(500,500));
+//        gameWindow.setMinimumSize(new Dimension(500,500));
+//        gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        //gameWindow.add(GamePanel);
+//        gameWindow.setVisible(true);
     }
 
     /**
@@ -52,7 +54,7 @@ public class GameGUI implements Serializable {
         });
         startUp.add(start);
 
-        //TODO implement resuming game
+        //TODO implement resuming gameWindow
         resume.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,21 +94,22 @@ public class GameGUI implements Serializable {
     }
 
     /**
-     * switches window from startup menu to new Tic Tac Toe game
+     * switches window from startup menu to new Tic Tac Toe gameWindow
      */
     private static void startGame() {
         startUp.setVisible(false);
-        game = new JFrame("TIC-TAC-TOE");
+        gameWindow = new JFrame("TIC-TAC-TOE");
         //Game idk = new Game();
 
-        setUpGameStart();
-        game.setSize(500, 500);
-        game.setLayout(null);
 
-        game.setMaximumSize(new Dimension(500, 500));
-        game.setMinimumSize(new Dimension(500, 500));
-        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        game.setVisible(true);
+        setUpGameStart();
+        gameWindow.setLayout(new BorderLayout(10,10));
+        gameWindow.setMaximumSize(new Dimension(500, 500));
+        gameWindow.setMinimumSize(new Dimension(500, 500));
+        gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gameWindow.setSize(500, 500);
+
+        gameWindow.setVisible(true);
 
     }
 
@@ -115,12 +118,13 @@ public class GameGUI implements Serializable {
     }
 
     private static void setUpGameStart(){
+        game = new Game();
         JPanel board = new JPanel();
-        board = initializeButtons(board);
-        board.setLayout(null);
-        board.setBounds(100,100,200,200);
-        board.setVisible(true);
-        game.add(board);
+
+        board.setBackground(Color.BLACK);
+        board.setBounds(100,90,300,300);
+
+        gameWindow.add(board);
 
     }
 
