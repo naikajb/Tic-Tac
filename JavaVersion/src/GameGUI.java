@@ -104,7 +104,7 @@ public class GameGUI implements Serializable {
     }
 
     /**
-     *
+     * sets up the buttons for the game in a JPanel
      */
     private static void setUpGameStart(){
         game = new Game();
@@ -113,10 +113,11 @@ public class GameGUI implements Serializable {
         board.setLayout(new GridLayout(3,3));
         board.setBackground(Color.BLACK);
         board.setBounds(100,90,300,300);
-
-        for (int row = 0; row < buttons.length; row++){
-            for(int col = 0; col < buttons.length; col++){
-                buttons[row][col] = new JButton();
+        int count = 0;
+        for (int row = 0; row < 3; row++){
+            for(int col = 0; col < 3; col++){
+                count++;
+                buttons[row][col] = new JButton(String.valueOf(count));
                 buttons[row][col].setForeground(Color.RED);
                 buttons[row][col].setOpaque(true);
                 buttons[row][col].setFocusable(false);//makes it not be "highlighted" when you click on it
@@ -124,9 +125,7 @@ public class GameGUI implements Serializable {
                 board.add(buttons[row][col]);
             }
         }
-
         gameWindow.add(board);
-
     }
 
     /**
@@ -138,14 +137,26 @@ public class GameGUI implements Serializable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(game.current == game.ex){
-                    //TODO place 'X' graphic on square
-                    button.setText("X");
+                    game.play(button.getText());
+
+                    //TODO place icon  on square
+                    button.setText(game.ex.getIcon());
                     button.setFont(new Font("Arial",3,40));
-                    //TODO check if player won
+
+                    //disables button after placing piece
+                    button.setEnabled(false);
+
+
                 }else{
-                    //TODO place 'O' graphic on square
-                    button.setText("O");
+                    game.play(button.getText());
+                   // int fine = game.checkWin(game.current);
+                   // System.out.println(fine);
+                    //TODO place icon on square
+                    button.setText(game.oh.getIcon());
                     button.setFont(new Font("Arial", Font.BOLD,40));
+
+                    //disables button after placing piece
+                    button.setEnabled(false);
                     //TODO check if player won
                 }
             }
