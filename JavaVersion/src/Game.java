@@ -94,7 +94,7 @@ public class Game {
      * @param position
      * @return true if was able to place the icon
      */
-    public boolean play(String position){
+    public void play(String position){
         int pos = Integer.parseInt(position);
         if(current == ex){
             xPos.add(pos);
@@ -112,13 +112,14 @@ public class Game {
 
         System.out.println();
         winnerFound = checkWin(current);
-        if (winnerFound){
-            return true;
-        }else{
-            changeCurrent();
-            return false;
-        }
 
+    }
+
+    public boolean checkFull(){
+        if(xPos.size() + yPos.size() == 9 ){
+            return true;
+        }
+        return false;
     }
 
     public boolean checkWin(Player current){
@@ -131,16 +132,15 @@ public class Game {
 
         for(List list: winningPositions){
             if(playerMoves.containsAll(list)){
-                System.out.print("Winner found");
+                System.out.println("Winner found");
                 return true;
             }
         }
-
         return false;
 
     }
 
-    private void changeCurrent(){
+    public void changeCurrent(){
         if(winnerFound){
             System.out.println("Winner was found!");
         }

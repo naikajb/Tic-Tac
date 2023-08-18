@@ -138,15 +138,12 @@ public class GameGUI implements Serializable {
             public void actionPerformed(ActionEvent e) {
                 if(game.current == game.ex){
                     game.play(button.getText());
-
                     //TODO place icon  on square
                     button.setText(game.ex.getIcon());
                     button.setFont(new Font("Arial",3,40));
 
                     //disables button after placing piece
                     button.setEnabled(false);
-
-
                 }else{
                     game.play(button.getText());
                    // int fine = game.checkWin(game.current);
@@ -158,6 +155,18 @@ public class GameGUI implements Serializable {
                     //disables button after placing piece
                     button.setEnabled(false);
                     //TODO check if player won
+                }
+
+                if (!game.winnerFound){
+                    boolean over = game.checkFull();
+                    if(over){
+                        System.out.println("No body wins. Try again!");
+                    }else{
+                        game.changeCurrent();
+                    }
+                }else{
+                    System.out.println(game.current.getIcon() + " wins!");
+
                 }
             }
         });
