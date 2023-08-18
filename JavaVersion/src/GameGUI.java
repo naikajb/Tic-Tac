@@ -165,6 +165,11 @@ public class GameGUI implements Serializable {
                         game.changeCurrent();
                     }
                 }else{
+                    for(int i = 0; i < buttons.length; i++){
+                        for(int j = 0; j < buttons.length; j++){
+                            buttons[i][j].setEnabled(false);
+                        }
+                    }
                     System.out.println(game.current.getIcon() + " wins!");
 
                 }
