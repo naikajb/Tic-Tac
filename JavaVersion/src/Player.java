@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Player {
-    public char icon;
+    private char icon;
     protected List<Integer> moves;
 
     public Player(char icon){
@@ -17,10 +17,9 @@ public class Player {
         moves.add(square);
     }
 
-}
-
-class NonEmptySquare extends Exception{
-    public NonEmptySquare(String message){
-        super(message);
+    public String getIcon(){
+        return String.valueOf(icon);
     }
+
+
 }
