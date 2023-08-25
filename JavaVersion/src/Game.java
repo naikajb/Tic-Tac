@@ -1,10 +1,34 @@
 
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-//import java.util.random;
+
+//class BACK extends JFrame{
+//    JButton b1;
+//    JLabel l1;
+//
+//    public BACK(){
+//        setTitle("COLOR FRAME");
+//        setSize(400,400);
+//        setLocationRelativeTo(null);
+//        setDefaultCloseOperation(EXIT_ON_CLOSE);
+//
+//
+//        setLayout(new BorderLayout());
+//        JLabel back = new JLabel(new ImageIcon("Pixel_Art_Background.jpg"));
+//        add(back);
+//        l1 = new JLabel("here");
+//        b1 = new JButton("Button");
+//        back.add(l1);
+//        back.add(b1);
+//        setSize(399,399);
+//        setSize(400,400);
+//        setVisible(true);
+//    }
+//}
 
 //class PositionList{
 //
