@@ -4,7 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
 
+class bckgrndImage extends JFrame{
+    JButton b1;
+    JLabel l1;
 
+    public bckgrndImage() {
+
+    }
+}
 public class GameGUI implements Serializable {
 
     private static JButton[][] buttons = new JButton[3][3];
@@ -71,6 +78,8 @@ public class GameGUI implements Serializable {
         });
         startUp.add(exit);
 
+
+        startUp.setBackground(Color.RED);
         startUp.setSize(500, 500);
         startUp.setLayout(null);
         startUp.setMaximumSize(new Dimension(500, 500));
@@ -79,7 +88,6 @@ public class GameGUI implements Serializable {
         startUp.setLocationRelativeTo(null);
         startUp.setVisible(true);
     }
-
 
     /**
      * switches window from startup menu to new Tic Tac Toe gameWindow
@@ -108,7 +116,7 @@ public class GameGUI implements Serializable {
      */
     private static void setUpGameStart(){
         game = new Game();
-
+        backgroundPicture();
         JPanel board = new JPanel();
         board.setLayout(new GridLayout(3,3));
         board.setBackground(Color.BLACK);
@@ -118,7 +126,7 @@ public class GameGUI implements Serializable {
             for(int col = 0; col < 3; col++){
                 count++;
                 buttons[row][col] = new JButton(String.valueOf(count));
-                buttons[row][col].setForeground(Color.RED);
+                buttons[row][col].setForeground(Color.WHITE);
                 buttons[row][col].setOpaque(true);
                 buttons[row][col].setFocusable(false);//makes it not be "highlighted" when you click on it
                 addAction(buttons[row][col]);
@@ -128,6 +136,12 @@ public class GameGUI implements Serializable {
         gameWindow.add(board);
     }
 
+    //TODO fix adding background image
+    private static void backgroundPicture(){
+        //Image img = Toolkit.getDefaultToolkit().getImage("background.png");
+        //startUp.setContentPane(new JLabel(new ImageIcon("background.png")));
+
+    }
     /**
      * Method to place the player's tokens on the squares
      * @param button
@@ -167,6 +181,8 @@ public class GameGUI implements Serializable {
                 }else{
                     for(int i = 0; i < buttons.length; i++){
                         for(int j = 0; j < buttons.length; j++){
+
+                            buttons[i][j].setForeground(Color.WHITE);
                             buttons[i][j].setEnabled(false);
                         }
                     }
@@ -179,6 +195,7 @@ public class GameGUI implements Serializable {
 
     public static void main(String[] args) {
         GameGUI g = new GameGUI();
+//      BACK b = new BACK();
     }
 
 }
