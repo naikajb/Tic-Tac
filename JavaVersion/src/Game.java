@@ -1,6 +1,7 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -61,7 +62,7 @@ import java.util.Random;
 //
 //
 //}
-public class Game {
+public class Game implements Serializable {
     protected Player ex = null;
     protected Player oh = null;
     public Player current = null;

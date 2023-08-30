@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.Serializable;
+import java.io.*;
 
 class bckgrndImage extends JFrame{
     JButton b1;
@@ -59,6 +59,7 @@ public class GameGUI implements Serializable {
                 startGame();
             }
         });
+
         startUp.add(start);
 
         //TODO implement resuming gameWindow
@@ -108,6 +109,19 @@ public class GameGUI implements Serializable {
     }
 
     private static void exitGame() {
+        //TODO save game state?
+//        File gameFile = new File("Tic-Tac-Toe Game");
+//        try{
+//            FileOutputStream fileStream = new FileOutputStream(gameFile);
+//            ObjectOutputStream output = new ObjectOutputStream(fileStream);
+//
+//            output.write(gam);
+//
+//        }catch(FileNotFoundException e){
+//            System.err.println(e.getMessage());
+//        }catch(IOException e){
+//            System.err.println(e.getMessage());
+//        }
         System.exit(0);
     }
 
@@ -179,9 +193,10 @@ public class GameGUI implements Serializable {
                         game.changeCurrent();
                     }
                 }else{
+
+
                     for(int i = 0; i < buttons.length; i++){
                         for(int j = 0; j < buttons.length; j++){
-
                             buttons[i][j].setForeground(Color.WHITE);
                             buttons[i][j].setEnabled(false);
                         }
